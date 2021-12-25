@@ -1,0 +1,4 @@
+rootProject.name = "DroidLib"
+
+include ':droid'
+include ':test'
