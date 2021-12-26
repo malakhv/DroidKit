@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This file contains values resources for SeekBarDialog preference. For more details, please see
+    com.malakhv.preference.SeekBarDialog
+-->
+<resources>
+
+    <!-- The attributes for load values from xml. -->
+    <declare-styleable name="SeekBarDialog">
+        <!-- The maximum value of SeekBar into the dialog -->
+        <attr name="android:max"/>
+        <!-- The initial value of SeekBar into the dialog -->
+        <attr name="android:progress"/>
+        <!-- The summary of preference -->
+        <attr name="android:summary"/>
+        <!-- The message into the dialog -->
+        <attr name="android:dialogMessage"/>
+    </declare-styleable>
+
+</resources>
