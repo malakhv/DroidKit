@@ -100,5 +100,5 @@ public final class DateTime {
     }
 
     /* This class has only static data, not need to create instance. */
-    private DateTime() {}
+    private DateTime() { /* Empty */ }
 }
