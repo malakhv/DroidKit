@@ -1,4 +1,4 @@
-/**
+/* *
  * Copyright (C) 2013 Mikhail Malakhov <malakhv@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

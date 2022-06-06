@@ -1,9 +1,31 @@
+/* *
+ * Copyright (C) 2022 Mikhail Malakhov <malakhv@gmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * */
+
 package com.malakhv.util;
 
+/**
+ * Class contains some methods to convert values between different types.
+ * @author Mikhail.Malakhov
+ * */
 public final class Converter {
 
+    /** The defailt {@code int} value. */
     public static final int DEF_INT = -1;
 
+    /** The defailt {@code long} value. */
     public static final long DEF_LONG = -1L;
 
     /**
