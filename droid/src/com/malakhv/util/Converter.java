@@ -22,10 +22,10 @@ package com.malakhv.util;
  * */
 public final class Converter {
 
-    /** The defailt {@code int} value. */
+    /** The default {@code int} value. */
     public static final int DEF_INT = -1;
 
-    /** The defailt {@code long} value. */
+    /** The default {@code long} value. */
     public static final long DEF_LONG = -1L;
 
     /**
