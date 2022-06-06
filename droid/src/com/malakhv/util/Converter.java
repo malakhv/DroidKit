@@ -28,6 +28,26 @@ public final class Converter {
     /** The default {@code long} value. */
     public static final long DEF_LONG = -1L;
 
+    /** The default prefix for hex value that represent as {@code string}. */
+    public static final String DEF_HEX_PREFIX = "0x";
+
+    /**
+     * Converts specified {@code int} to hexadecimal string with default prefix.
+     * @see #DEF_HEX_PREFIX
+     * @see #intToHexStr(int, String)
+     * */
+    public static String intToHexStr(int value) {
+        return intToHexStr(value, DEF_HEX_PREFIX);
+    }
+
+    /**
+     * Converts specified {@code int} to hexadecimal string.
+     * @see #intToHexStr(int)
+     * */
+    public static String intToHexStr(int value, String prefix) {
+        return prefix + Integer.toHexString(value).toUpperCase();
+    }
+
     /**
      * Converts specified string to {@code int} value.
      * @return The string {@code value} represent as {@code int}, or {@link #DEF_INT} when
