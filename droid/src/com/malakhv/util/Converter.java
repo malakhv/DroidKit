@@ -24,11 +24,20 @@ import com.malakhv.data.BitwiseSet;
  * */
 public final class Converter {
 
+    /** The default {@code byte} value. */
+    public static final byte DEF_BYTE = -1;
+
     /** The default {@code int} value. */
     public static final int DEF_INT = -1;
 
     /** The default {@code long} value. */
     public static final long DEF_LONG = -1L;
+
+    /** The default {@code float} value. */
+    public static final float DEF_FLOAT = -1F;
+
+    /** The default {@code double} value. */
+    public static final double DEF_DOUBLE = -1D;
 
     /** The default prefix for hexadecimal value that represent as {@code string}. */
     public static final String DEF_HEX_PREFIX = "0x";
@@ -72,6 +81,29 @@ public final class Converter {
     }
 
     /**
+     * Converts specified string to {@code byte} value.
+     * @return The string {@code value} represent as {@code byte}, or {@link #DEF_BYTE} when
+     * converting impossible.
+     * */
+    public static byte strToByte(String value) {
+        return strToByte(value, DEF_BYTE);
+    }
+
+    /**
+     * Converts specified string to {@code byte} value.
+     * @return The string {@code value} represent as {@code byte}, or {@code def} when
+     * converting impossible.
+     * */
+    public static byte strToByte(String value, byte def) {
+        if (StrUtils.isEmpty(value)) return def;
+        try {
+            return Byte.parseByte(value);
+        } catch (NumberFormatException e) {
+            return def;
+        }
+    }
+
+    /**
      * Converts specified string to {@code int} value.
      * @return The string {@code value} represent as {@code int}, or {@link #DEF_INT} when
      * converting impossible.
@@ -112,6 +144,52 @@ public final class Converter {
         if (StrUtils.isEmpty(value)) return def;
         try {
             return Long.parseLong(value);
+        } catch (NumberFormatException e) {
+            return def;
+        }
+    }
+
+    /**
+     * Converts specified string to {@code float} value.
+     * @return The string {@code value} represent as {@code float}, or {@link #DEF_FLOAT} when
+     * converting impossible.
+     * */
+    public static float strToFloat(String value) {
+        return strToFloat(value, DEF_FLOAT);
+    }
+
+    /**
+     * Converts specified string to {@code float} value.
+     * @return The string {@code value} represent as {@code float}, or {@code def} when
+     * converting impossible.
+     * */
+    public static float strToFloat(String value, float def) {
+        if (StrUtils.isEmpty(value)) return def;
+        try {
+            return Float.parseFloat(value);
+        } catch (NumberFormatException e) {
+            return def;
+        }
+    }
+
+    /**
+     * Converts specified string to {@code double} value.
+     * @return The string {@code value} represent as {@code double}, or {@link #DEF_DOUBLE} when
+     * converting impossible.
+     * */
+    public static double strToDouble(String value) {
+        return strToDouble(value, DEF_DOUBLE);
+    }
+
+    /**
+     * Converts specified string to {@code double} value.
+     * @return The string {@code value} represent as {@code double}, or {@code def} when
+     * converting impossible.
+     * */
+    public static double strToDouble(String value, double def) {
+        if (StrUtils.isEmpty(value)) return def;
+        try {
+            return Double.parseDouble(value);
         } catch (NumberFormatException e) {
             return def;
         }
