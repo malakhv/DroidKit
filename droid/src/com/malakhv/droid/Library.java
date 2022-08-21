@@ -16,7 +16,7 @@
 
 package com.malakhv.droid;
 
-import com.devlear.droid.BuildConfig;
+//import com.devlear.droid.BuildConfig;
 
 /**
  * @author Mikhail.Malakhov
@@ -27,14 +27,16 @@ public final class Library {
      * Returns the library's build type.
      * */
     public String getBuildType() {
-        return BuildConfig.BUILD_TYPE;
+        //return BuildConfig.BUILD_TYPE;
+        return null;
     }
 
     /**
      * Returns the library's package name.
      * */
     public static String getPackageName() {
-        return BuildConfig.LIBRARY_PACKAGE_NAME;
+        //return BuildConfig.LIBRARY_PACKAGE_NAME;
+        return null;
     }
 
 }
