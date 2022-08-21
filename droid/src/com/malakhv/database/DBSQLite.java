@@ -1,5 +1,5 @@
 /* *
- * Copyright (C) 2018 Mikhail Malakhov <malakhv@gmail.com>
+ * Copyright (C) 2015 Mikhail Malakhov <malakhv@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -144,6 +144,8 @@ public abstract class DBSQLite extends SQLiteOpenHelper {
         return this.getWritableDatabase().query(table,null, null, null, null,
                 null, null);
     }
+
+
 
     /**
      * Execute a single SQL statement that is NOT a SELECT or any other SQL statement that returns
