@@ -93,7 +93,7 @@ public final class LatLon {
     /**
      * Construct a new {@link LatLon} instance with specified parameters.
      * */
-    private LatLon(double lat, double lon) {
+    public LatLon(double lat, double lon) {
         mLat = lat; mLon = lon;
     }
 
