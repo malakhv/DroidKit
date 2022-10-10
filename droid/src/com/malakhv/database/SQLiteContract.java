@@ -211,6 +211,6 @@ public class SQLiteContract {
     //------------------------------------------------------------------------------------------
 
     /** This class has only static data, not need to create instance. */
-    private SQLiteContract() { /* Empty */ }
+    protected SQLiteContract() { /* Empty */ }
 
 }
