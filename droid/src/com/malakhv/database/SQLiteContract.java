@@ -31,13 +31,17 @@ public class SQLiteContract {
     /**
      * The base interface for any table in database.
      * */
-    public interface BaseTable extends BaseColumns {
+    public interface BaseTable extends BaseColumns { /* Empty, right now */ }
+
+    /**
+     * The base interface for any global table (table that sync with server) in database.
+     * */
+    public interface GlobalTable extends BaseColumns {
 
         /**
          * The unique global ID for a row.
          * <p>Type: INTEGER</p>
          * */
-        // @Column(Cursor.FIELD_TYPE_INTEGER)
         String COLUMN_GLOBAL_ID = "_id_global";
 
     }

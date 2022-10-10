@@ -110,7 +110,7 @@ public abstract class DBSQLite extends SQLiteOpenHelper {
         String sel = selection;
         if (hasLocale) {
             sel = StrUtils.isEmpty(sel) ? "" : (sel + " and ");
-            sel += LocaleTable.COLUMN_LOCALE + " = ? ";
+            sel += SQLiteContract.LocaleTable.COLUMN_LOCALE + " = ? ";
         }
 
         // Build selection arguments
@@ -204,28 +204,4 @@ public abstract class DBSQLite extends SQLiteOpenHelper {
         return DBSQLite.execSQL(db, "" + table);
     }
 
-    /**
-     * The base interface for any table in database.
-     * @author Mikhail.Malakhov
-     * */
-    public interface BaseTable extends BaseColumns {
-        /**
-         * The unique global ID for a row.
-         * <p>Type: INTEGER</p>
-         * */
-        String COLUMN_GLOBAL_ID = "_id_global";
-    }
-
-    /**
-     * The base interface for any table in database which support different localization.
-     * @see #COLUMN_LOCALE
-     * @author Mikhail.Malakhov
-     * */
-    public interface LocaleTable {
-        /**
-         * The localisation of a row object in RFC-3066 format (en_EN, ru_RU, for example).
-         * <p>Type: TEXT</p>
-         * */
-        String COLUMN_LOCALE = "locale";
-    }
 }
