@@ -21,8 +21,7 @@ import java.util.TimeZone;
 
 /**
  * Class contains some methods for working with date and time.
- *
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 public final class DateTime {
 

@@ -18,7 +18,7 @@ package com.malakhv.util;
 
 /**
  * Class contains some methods for working with Strings.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings({"unused"})
 public final class StrUtils {

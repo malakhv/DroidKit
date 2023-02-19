@@ -26,7 +26,7 @@ import java.util.List;
 
 /**
  * Class contains some things to work with files.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings("unused")
 public final class FileUtils {

@@ -31,7 +31,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 /**
  * The class for manage app permissions.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings("unused")
 public class PermUtils {

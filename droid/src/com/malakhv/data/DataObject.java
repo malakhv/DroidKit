@@ -17,7 +17,7 @@
 package com.malakhv.data;
 
 /**
- * @author Mikhail.Malakhov [malakhv@live.ru|https://github.com/malakhv]
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  */
 // TODO May be DataWrapper
 public class DataObject<T> {

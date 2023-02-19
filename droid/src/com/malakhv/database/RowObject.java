@@ -28,8 +28,7 @@ import java.util.TreeSet;
 /**
  * Class represent a row in database's table as an object.
  * @see RowList
- *
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 public class RowObject {
 

@@ -31,7 +31,7 @@ import android.util.AttributeSet;
 
 /**
  * Class implements {@link Preference} with {@link DialogFragment}.
- * @author Mikhail.Malakhov [malakhv@live.ru|https://github.com/malakhv]
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 //TODO Need to add more JavaDoc comments about preference key and dialog lifecycle
 @SuppressWarnings("unused")

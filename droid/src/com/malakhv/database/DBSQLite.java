@@ -31,7 +31,7 @@ import java.util.Arrays;
 
 /**
  * The basic class for working with SQLite database.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings({"unused", "WeakerAccess"})
 public abstract class DBSQLite extends SQLiteOpenHelper {

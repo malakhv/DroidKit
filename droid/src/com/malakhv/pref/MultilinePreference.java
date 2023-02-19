@@ -32,8 +32,7 @@ import com.devlear.droid.R;
 /**
  * Class implements {@link Preference} without limiting the number of lines for preference's title
  * and summary.
- *
- * @author Mikhail.Malakhov [malakhv@live.ru|https://github.com/malakhv]
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings("unused")
 public class MultilinePreference extends Preference {

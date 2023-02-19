@@ -28,7 +28,7 @@ import java.util.zip.ZipInputStream;
 
 /**
  * Class contains some things to work with zip archives.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings({"unused"})
 public final class ZipUtils {

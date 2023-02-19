@@ -28,7 +28,7 @@ import java.io.InputStream;
 
 /**
  * Class contains some things to work with app resources.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings({"unused", "WeakerAccess"})
 public final class ResUtils {

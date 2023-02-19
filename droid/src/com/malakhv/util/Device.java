@@ -17,7 +17,7 @@
 package com.malakhv.util;
 
 /**
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 public class Device {
 

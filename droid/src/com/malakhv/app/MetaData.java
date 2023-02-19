@@ -25,8 +25,7 @@ import android.util.Log;
 
 /**
  * Class contains methods to retrieving meta data from application components.
- * 
- * @author Mikhail Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings("unused")
 public final class MetaData {

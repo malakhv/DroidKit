@@ -25,7 +25,8 @@ import java.util.Locale;
 /**
  * Since in different map system/different API we may have a different structures to store
  * location data, we want to have our own to bring everything to a common denominator.
- * @author Mikhail.Malakhov
+ *
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
 public final class LatLon {

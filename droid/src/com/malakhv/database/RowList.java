@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * The abstract class represents the list of rows in database table.
  * @see RowObject
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 public abstract class RowList<E extends RowObject> implements Iterable<E> {
 

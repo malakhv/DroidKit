@@ -23,7 +23,7 @@ import java.io.InputStreamReader;
 
 /**
  * Class contains some methods for working with {@link InputStream}.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 public final class StreamUtils {
 

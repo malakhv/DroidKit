@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Mikhail.Malakhov [malakhv@live.ru|https://github.com/malakhv]
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 public class DataMap extends DataObject<Map<String, String>> {
 

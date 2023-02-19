@@ -16,20 +16,15 @@
 
 package com.malakhv.pref;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.preference.CheckBoxPreference;
-import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.TextView;
 
 /**
  * Class implements {@link CheckBoxPreference} without limiting the number of lines for
  * preference's title and summary.
- *
- * @author Mikhail.Malakhov [malakhv@live.ru|https://github.com/malakhv]
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings("unused")
 public class MultilineCheckBox extends CheckBoxPreference {
@@ -60,7 +55,6 @@ public class MultilineCheckBox extends CheckBoxPreference {
      * Perform inflation from XML and apply a class-specific base style from a theme attribute or
      * style resource. Just call super(), in this implementation.
      * */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public MultilineCheckBox(Context context, AttributeSet attrs, int defStyleAttr, int
             defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);

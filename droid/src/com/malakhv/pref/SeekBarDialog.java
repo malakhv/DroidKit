@@ -32,8 +32,8 @@ import com.devlear.droid.R;
 
 /**
  * A {@link Preference} that displays a {@link SeekBar} as a dialog.
- * @author Mikhail.Malakhov [malakhv@live.ru|https://github.com/malakhv]
- */
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
+ * */
 @SuppressWarnings("unused")
 public class SeekBarDialog extends DialogPreference {
 

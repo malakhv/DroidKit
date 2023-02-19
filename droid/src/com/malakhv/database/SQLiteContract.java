@@ -20,7 +20,7 @@ import android.provider.BaseColumns;
 
 /**
  * The common SQLite database contract.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings("unused")
 public class SQLiteContract {

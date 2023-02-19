@@ -27,7 +27,7 @@ package com.malakhv.data;
  * <p>For store a bit flags, the {@code BitwiseSet} uses one {@code int} field. By default, all
  * bits in the set initially have the value {@code false}.</p>
  *
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 @SuppressWarnings("unused")
 public class BitwiseSet {

@@ -23,7 +23,7 @@ import java.io.DataOutputStream;
 /**
  * Basic class for execute shell commands.
  *
- * @author Mikhail.Malakhov [malakhv@live.ru|https://github.com/malakhv]
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 // TODO Need to write JavaDoc
 @SuppressWarnings("unused")

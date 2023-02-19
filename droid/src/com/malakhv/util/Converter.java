@@ -20,7 +20,7 @@ import com.malakhv.data.BitwiseSet;
 
 /**
  * Class contains some methods to convert values between different types.
- * @author Mikhail.Malakhov
+ * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
  * */
 public final class Converter {
 
