@@ -31,6 +31,9 @@ import java.util.Locale;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public final class LatLon {
 
+    /** Radius of Earth, in meters. */
+    public static final double EARTH_RADIUS = 6372795;
+
     /** The suffix for north latitude. */
     public static final String NORTH_LATITUDE_SUFFIX = "N";
 
@@ -120,6 +123,13 @@ public final class LatLon {
      * */
     public boolean isEmpty() {
         return !(hasLat() && hasLon());
+    }
+
+    /**
+     * @return True, if this object has valid location data.
+     * */
+    public boolean isValid() {
+        return hasLat() && hasLon();
     }
 
     /**
@@ -271,6 +281,46 @@ public final class LatLon {
      * */
     private static boolean isValidLongitude(double value) {
         return value >= MIN_LONGITUDE && value <= MAX_LONGITUDE;
+    }
+
+    /*----------------------------------------------------------------------------------------*/
+    /* Distance
+    /*----------------------------------------------------------------------------------------*/
+
+    /**
+     * @return The minimum distance between two points (by haversine formula), in meters.
+     * */
+    public static double getDistance(LatLon a, LatLon b) {
+        double distance = 0;
+
+        // Check input parameters
+        if (!a.isValid() || !b.isValid()) return distance;
+
+        // Convert to radians
+        final double lat1 = Math.toRadians(a.getLatitude());
+        final double lon1 = Math.toRadians(a.getLongitude());
+        final double lat2 = Math.toRadians(b.getLatitude());
+        final double lon2 = Math.toRadians(b.getLongitude());
+
+        // Cos and Sin of latitudes
+        final double cosLat1 = Math.cos(lat1);
+        final double cosLat2 = Math.cos(lat2);
+        final double sinLat1 = Math.sin(lat1);
+        final double sinLat2 = Math.sin(lat2);
+
+        // Longitudes delta
+        final double delta = lon2 - lon1;
+        final double cosDelta = Math.cos(delta);
+        final double sinDelta = Math.sin(delta);
+
+        // The length of a large circle
+        final double tmp = cosLat1 * sinLat2 - sinLat1 * cosLat2 * cosDelta;
+        double y = Math.sqrt(Math.pow(cosLat2 * sinDelta, 2)
+                + Math.pow(tmp, 2));
+        double x =  sinLat1 * sinLat2 + cosLat1 * cosLat2 * cosDelta;
+        distance = Math.atan2(y, x) * EARTH_RADIUS;
+
+        return distance;
     }
 
     /*----------------------------------------------------------------------------------------*/
