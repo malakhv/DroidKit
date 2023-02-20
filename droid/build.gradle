@@ -19,8 +19,8 @@ plugins { id 'com.android.library' }
 /* Define global artifact property */
 ext {
     ARTIFACT_NAME = 'droid'
-    ARTIFACT_VERSION_CODE = 7
-    ARTIFACT_VERSION_NAME = '0.1.7'
+    ARTIFACT_VERSION_CODE = 8
+    ARTIFACT_VERSION_NAME = '0.1.8'
     ARTIFACT_GROUP_ID = "com.malakhv.libs"
 }
 
