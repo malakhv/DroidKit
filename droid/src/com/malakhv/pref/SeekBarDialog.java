@@ -28,7 +28,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.devlear.droid.R;
+import com.malakhv.droid.R;
 
 /**
  * A {@link Preference} that displays a {@link SeekBar} as a dialog.

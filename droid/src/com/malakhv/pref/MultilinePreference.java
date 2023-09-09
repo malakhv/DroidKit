@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.devlear.droid.R;
+import com.malakhv.droid.R;
 
 /**
  * Class implements {@link Preference} without limiting the number of lines for preference's title
