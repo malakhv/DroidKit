@@ -13,4 +13,4 @@ allprojects {
         maven { url "file://${rootDir}/../zMaven" }
     }
 }
-task clean(type: Delete) { delete rootProject.buildDir }
+tasks.register('clean', Delete) { delete rootProject.buildDir }
