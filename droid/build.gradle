@@ -14,28 +14,38 @@
  * limitations under the License.
  * */
 
-plugins { id 'com.android.library' }
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 /* Define global artifact property */
 ext {
     ARTIFACT_NAME = 'droid'
-    ARTIFACT_VERSION_CODE = 8
-    ARTIFACT_VERSION_NAME = '0.1.8'
-    ARTIFACT_GROUP_ID = "com.malakhv.libs"
+    ARTIFACT_VERSION_CODE = 9
+    ARTIFACT_VERSION_NAME = '0.1.9'
+    ARTIFACT_GROUP_ID = 'com.malakhv.libs'
 }
 
 apply from: 'library.gradle'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
-
+    compileSdk 34
+    buildToolsVersion '34.0.0'
+    namespace = 'com.malakhv.droid'
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 34
         versionCode ARTIFACT_VERSION_CODE
-        versionName "1.0"
+        versionName ARTIFACT_VERSION_NAME
         consumerProguardFiles "consumer-rules.pro"
+    }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 
     // This module has only one source set
@@ -70,11 +80,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     lintOptions { abortOnError false }
+    ndkVersion '25.2.9519653'
 }
 
 dependencies {

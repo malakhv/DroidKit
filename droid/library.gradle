@@ -14,8 +14,6 @@
  * limitations under the License.
  * */
 
-apply plugin: 'maven'
-
 /** The artifact's data */
 class Artifact {
     String path, groupId, version, id, name
@@ -30,126 +28,80 @@ def artifact = new Artifact (
         version: project.ARTIFACT_VERSION_NAME
 )
 
-configurations { deployerJars }
-dependencies {
-    deployerJars "org.apache.maven.wagon:wagon-ftp:2.2"
-    "org.apache.maven.wagon:wagon-ftp:2.2"
-}
-
 /**
- * Build JavaDoc.
+ * Publishing artifact to a local repo.
  * */
-task androidJavadocs(type: Javadoc) {
-    afterEvaluate {
-        failOnError = false
-        source = android.sourceSets.main.java.srcDirs
-        // It is not necessary for this project
-        //ext.androidJar = "${project.ANDROID_JAR}"
-        //classpath += files(ext.androidJar)
-        androidJavadocs.dependsOn project.assembleRelease
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = project.ARTIFACT_GROUP_ID
+            artifactId = project.ARTIFACT_NAME
+            version = project.project.ARTIFACT_VERSION_NAME
+            afterEvaluate {
+                from components.release
+            }
+            pom {
+                name = 'DroidKit'
+                description = 'The common library for Android projects'
+                url = 'https://github.com/malakhv/DroidKit'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
+                    }
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'manual'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'mikhan'
+                        name = 'Mikhail Malakhov'
+                        email = 'malakhv@gmail.com'
+                        url = 'https://github.com/malakhv'
+                    }
+                }
+            }
+        }
     }
-}
-task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-    classifier = 'javadoc'
-    from androidJavadocs.destinationDir
-}
-
-/**
- * Make Source jar.
- * */
-task androidSourcesJar(type: Jar) {
-    afterEvaluate {
-        classifier = 'sources'
-        from android.sourceSets.main.java.srcDirs
+    repositories {
+        maven {
+            name = 'local'
+            url = "file://${artifact.path}"
+        }
     }
 }
 
 /**
  * Print artifact data.
  * */
-task printArtifact {
-    println "----------------------------------------------------------------------------------"
-    println "Artifact make complete successfully!"
-    println "Name: ${artifact.name}"
-    println "Version: ${artifact.version}"
-    println "Group: ${artifact.groupId}"
+tasks.register('printArtifactInfo') {
+    println "--------------------------------------------------------------"
+    println "Artifact Name: ${artifact.name}"
+    println "Artifact Version: ${artifact.version}"
+    println "Artifact Group: ${artifact.groupId}"
     println "Patch: ${artifact.path}"
-    println "----------------------------------------------------------------------------------"
+    println "---------------------------------------------------------------"
+}
+configure(printArtifactInfo) {
+    group = 'publishing'
+    description = 'Print information about artifact'
 }
 
 /**
  * Zip artifact.
  * */
-task zipRelease(type: Zip) {
+tasks.register('zipArtifact', Zip) {
     from artifact.path
     File destDir = file("${rootDir}/artifacts/")
     destinationDir destDir
     archiveName "${artifact.name}-${artifact.version}.zip"
 }
+configure(zipArtifact) {
+    group = 'publishing'
+    description = 'Create zip archive with all artifact data'
+}
 
-/**
- * Make artifact and upload it to local maven repo.
- * */
-task makeArtifact(type: Upload) {
-    uploadDescriptor = true
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        pom.groupId = artifact.groupId
-        pom.artifactId = artifact.id
-        pom.version = artifact.version
-        pom.project {
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-        }
-        repository(url: "file://${artifact.path}")
-    }
-}
-configure(makeArtifact) {
-    group = 'publish'
-    description = 'Make artifact and upload it to local maven repo.'
-}
-makeArtifact.shouldRunAfter(clean)
-makeArtifact.dependsOn(assemble)
-makeArtifact.finalizedBy(printArtifact)
-makeArtifact.finalizedBy(zipRelease)
-
-/**
- * Make artifact's snapshot and upload it to local maven repo.
- * */
-task makeSnapshot(type: Upload) {
-    uploadDescriptor = true
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        pom.groupId = artifact.groupId
-        pom.artifactId = artifact.id
-        pom.version = "${artifact.version}-SNAPSHOT"
-        pom.project {
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-        }
-        repository(url: "file://${artifact.path}")
-    }
-}
-configure(makeSnapshot) {
-    group = 'publish'
-    description = "Make artifact's snapshot and upload it to local maven repo."
-}
-makeSnapshot.shouldRunAfter(clean)
-makeSnapshot.dependsOn(assemble)
-makeSnapshot.finalizedBy(printArtifact)
-makeSnapshot.finalizedBy(zipRelease)
-
-artifacts {
-    archives androidSourcesJar
-    archives androidJavadocsJar
-}
