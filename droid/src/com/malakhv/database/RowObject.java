@@ -141,8 +141,8 @@ public class RowObject {
     }
 
     /**
-     * Called immediately before data item from database will be added to this object. This is a
-     * good place to process {@code value}.
+     * Called immediately before data item from database will be added to this object.
+     * This is a good place to process {@code value}.
      * <p>The default implementation just returns the original value.</p>
      *
      * @return The {@value} that will be added to this object.
@@ -172,8 +172,8 @@ public class RowObject {
     public void load(Cursor cursor) {
         onPreLoad();
         int count;
-        if (cursor == null || cursor.getPosition() < 0 || (count = cursor.getCount()) <= 0 ||
-                cursor.getPosition() >= count) return;
+        if (cursor == null || cursor.getPosition() < 0 || (count = cursor.getCount()) <= 0
+                || cursor.getPosition() >= count) return;
         int col = cursor.getColumnCount();
         for (int i = 0; i < col; i++) {
             final String key = cursor.getColumnName(i);
@@ -205,8 +205,9 @@ public class RowObject {
 
         TreeSet<String> keys = new TreeSet<>(mData.keySet());
         for (String key: keys) {
-            builder.append(key).append(StrUtils.CHAR_EQUAL).append(mData.get(key)).append(
-                    StrUtils.CHAR_COMMA);
+            builder.append(key)
+                    .append(StrUtils.CHAR_EQUAL)
+                    .append(mData.get(key)).append(StrUtils.CHAR_COMMA);
         }
         builder.append("}");
         return builder.toString();

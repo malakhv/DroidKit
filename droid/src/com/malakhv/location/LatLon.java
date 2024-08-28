@@ -25,11 +25,11 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Since in different map system/different API we may have a different structures to store
- * location data, we want to have our own to bring everything to a common denominator.
- *
+ * Since in different map system/different API we may have a different structures to
+ * store location data, we want to have our own to bring everything to a common
+ * denominator.
  * @author <a href="https://github.com/malakhv">Mikhail.Malakhov</a>
- */
+ * */
 @SuppressWarnings({"unused", "WeakerAccess"})
 public final class LatLon {
 
@@ -70,7 +70,8 @@ public final class LatLon {
     private static final String DEF_LOCATION_STRING_FORMAT = "%.7f";
 
     /**
-     * The location data value (for latitude and/or longitude) when we have no correct values.
+     * The location data value (for latitude and/or longitude) when we have no correct
+     * values.
      * */
     private static final double WRONG_LOCATION = 512D; // Na GlaZ!
 
@@ -285,10 +286,6 @@ public final class LatLon {
         return value >= MIN_LONGITUDE && value <= MAX_LONGITUDE;
     }
 
-    /*----------------------------------------------------------------------------------------*/
-    /* Distance
-    /*----------------------------------------------------------------------------------------*/
-
     /**
      * @return The minimum distance between two points (by haversine formula), in meters.
      * */
@@ -324,10 +321,6 @@ public final class LatLon {
 
         return distance;
     }
-
-    /*----------------------------------------------------------------------------------------*/
-    /* Export to XML
-    /*----------------------------------------------------------------------------------------*/
 
     /** The default root tag in xml document. */
     private static final String DEF_XML_DOC_TAG = "locations";
@@ -403,13 +396,14 @@ public final class LatLon {
      * @see #toXmlString(String, LatLon)
      * */
     public static String toXml(String docTag, String itemTag, List<LatLon> data) {
-        if (StrUtils.isEmpty(docTag) || StrUtils.isEmpty(itemTag)) return  StrUtils.EMPTY;
+        if (StrUtils.isEmpty(docTag) || StrUtils.isEmpty(itemTag)) return StrUtils.EMPTY;
         final String item_tab = "    ";
 
         // Start xml doc
         final StringBuilder builder = new StringBuilder();
         builder.append(XmlUtils.XML_DOC_HEAD).append(StrUtils.CHAR_NEW_LINE);
-        builder.append(XmlUtils.XML_TAG_START).append(docTag).append(XmlUtils.XML_TAG_END)
+        builder.append(XmlUtils.XML_TAG_START).append(docTag)
+                .append(XmlUtils.XML_TAG_END)
                 .append(StrUtils.CHAR_NEW_LINE);
 
         // Doc data. We want to return empty document even if data is null or empty

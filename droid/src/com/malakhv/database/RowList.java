@@ -32,8 +32,8 @@ import java.util.List;
 public abstract class RowList<E extends RowObject> implements Iterable<E> {
 
     /**
-     * The collection of items into this object. By default, we user {@link ArrayList}, but
-     * child class can change it in {@link #makeItems(int)}.
+     * The collection of items into this object. By default, we user {@link ArrayList},
+     * but child class can change it via {@link #makeItems(int)}.
      * @see #makeItems(int)
      * */
     private final List<E> mItems;
@@ -80,8 +80,9 @@ public abstract class RowList<E extends RowObject> implements Iterable<E> {
     }
 
     /**
-     * Makes an empty collection of items for this object. By default, an {@link ArrayList} will
-     * be created, but this behaviour can be changed in child classes.
+     * Makes an empty collection of items for this object. By default, an
+     * {@link ArrayList} will be created, but this behaviour can be changed in child
+     * classes.
      * @param capacity The initial capacity of the collection, or 0, for default capacity.
      * */
     protected List<E> makeItems(int capacity) {
@@ -128,16 +129,16 @@ public abstract class RowList<E extends RowObject> implements Iterable<E> {
     }
 
     /**
-     * Updates this list. The child class can implements any update logic. By default this
-     * method clears list.
+     * Updates this list. The child class can implements any update logic. By default
+     * this method clears list.
      * */
     public void update() {
         clear();
     }
 
     /**
-     * Called before an {@code item} will be added to this list. This method can used to manage
-     * adding operation during data loading.
+     * Called before an {@code item} will be added to this list. This method can used to
+     * manage adding operation during data loading.
      * @return True, if you want to have specified item in this list, otherwise false.
      * */
     protected boolean onItemAdd(E item) {
@@ -229,32 +230,32 @@ public abstract class RowList<E extends RowObject> implements Iterable<E> {
     /**
      *  Loads data to this list from assigned database.
      * */
-    protected void load(String table, String locale, String selection, String[] selectionArgs) {
-        load(mDB, table, locale, selection, selectionArgs);
+    protected void load(String table, String locale, String sel, String[] selArgs) {
+        load(mDB, table, locale, sel, selArgs);
     }
 
     /**
      * Loads data to this list from assigned database.
      * */
-    protected void load(String table, String locale, String selection, String[] selectionArgs,
+    protected void load(String table, String locale, String sel, String[] selArgs,
             int max) {
-        load(mDB, table, locale, selection, selectionArgs, max);
+        load(mDB, table, locale, sel, selArgs, max);
     }
 
     /**
      * Loads data to this list from assigned database.
      * */
-    protected void load(String table, String locale, String selection, String[] selectionArgs,
+    protected void load(String table, String locale, String sel, String[] selArgs,
             String orderBy) {
-        load(mDB, table, locale, selection, selectionArgs, orderBy);
+        load(mDB, table, locale, sel, selArgs, orderBy);
     }
 
     /**
      * Loads data to this list from assigned database.
      * */
-    protected void load(String table, String locale, String selection, String[] selectionArgs,
+    protected void load(String table, String locale, String sel, String[] selArgs,
             String orderBy, int max) {
-        load(mDB, table, locale, selection, selectionArgs, orderBy, max);
+        load(mDB, table, locale, sel, selArgs, orderBy, max);
     }
 
     /** {@inheritDoc} */

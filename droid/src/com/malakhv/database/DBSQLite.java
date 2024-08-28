@@ -104,15 +104,17 @@ public abstract class DBSQLite extends SQLiteOpenHelper {
      * Returns readable cursor for a table.
      * @return The readable cursor, or null.
      * */
-    public Cursor getReadableCursor(String table, String[] columns, String locale, String selection,
-                                    String[] selectionArgs, String groupBy, String having, String orderBy) {
+    public Cursor getReadableCursor(String table, String[] columns, String locale,
+            String selection, String[] selectionArgs, String groupBy, String having,
+            String orderBy) {
+
         final boolean hasLocale = !StrUtils.isEmpty(locale);
 
         // Build selection
         String sel = selection;
         if (hasLocale) {
             sel = StrUtils.isEmpty(sel) ? "" : (sel + " and ");
-            sel += SQLiteContract.LocaleTable.COLUMN_LOCALE + " = ? ";
+            sel += SQLiteScheme.LocaleTable.COLUMN_LOCALE + " = ? ";
         }
 
         // Build selection arguments
@@ -130,8 +132,8 @@ public abstract class DBSQLite extends SQLiteOpenHelper {
 
         // Receive cursor
         try {
-            return this.getReadableDatabase().query(table, columns, sel, args, groupBy,
-                    having, orderBy);
+            return this.getReadableDatabase().query(table, columns, sel, args,
+                    groupBy, having, orderBy);
         } catch (SQLiteException e) {
             return null;
         }
@@ -147,13 +149,11 @@ public abstract class DBSQLite extends SQLiteOpenHelper {
                 null, null);
     }
 
-
-
     /**
-     * Execute a single SQL statement that is NOT a SELECT or any other SQL statement that returns
-     * data.
-     * @param sql The SQL statement to be executed. Multiple statements separated by semicolons
-     *            are not supported.
+     * Execute a single SQL statement that is NOT a SELECT or any other SQL statement
+     * that returns data.
+     * @param sql The SQL statement to be executed. Multiple statements separated by
+     *            semicolons are not supported.
      * */
     public static boolean execSQL(SQLiteDatabase db, String sql) {
         if (db == null) return false;
