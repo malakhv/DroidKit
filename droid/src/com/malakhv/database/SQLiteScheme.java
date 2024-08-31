@@ -204,5 +204,5 @@ public class SQLiteScheme {
     }
 
     /** This class has only static data, not need to create instance. */
-    private SQLiteScheme() { /* Empty */ }
+    protected SQLiteScheme() { /* Empty */ }
 }
