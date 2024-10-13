@@ -19,5 +19,5 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.devlear.droid">
+    package="com.malakhv.droid">
 </manifest>

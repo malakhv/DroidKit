@@ -99,8 +99,9 @@ configure(printArtifactInfo) {
 tasks.register('zipArtifact', Zip) {
     from artifact.path
     File destDir = file("${rootDir}/artifacts/")
-    destinationDir destDir
-    archiveName "${artifact.name}-${artifact.version}.zip"
+    destinationDirectory = destDir
+    archiveBaseName = "${artifact.name}-${artifact.version}.zip"
+
 }
 configure(zipArtifact) {
     group = 'publishing'
