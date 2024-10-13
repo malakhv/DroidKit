@@ -33,7 +33,7 @@ apply from: 'library.gradle'
 
 android {
     namespace = 'com.malakhv.droid'
-    compileSdk 34
+    compileSdk 35
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 35
