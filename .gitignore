@@ -16,3 +16,6 @@
 /*/*.iml
 /*/.externalNativeBuild
 /*/.cxx
+
+// MacOS Finder files
+.DS_Store
